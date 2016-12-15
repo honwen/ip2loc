@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/wangtuanjie/ip17mon"
+	"../.."
 )
 
 func init() {

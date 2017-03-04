@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"../.."
+	"github.com/chenhw2/ip2loc"
 )
 
 func init() {

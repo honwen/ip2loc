@@ -24,5 +24,6 @@ _testmain.go
 *.prof
 
 ip2loc*
+!ip2loc/
 !ip2loc.go
 

@@ -18,7 +18,7 @@ func IP2loc(ip string) (loc *ipdb.CityInfo, err error) {
 			return loc, err
 		}
 
-		file, err := stkfs.Open("/ipipfree.ipdb")
+		file, err := stkfs.Open("/qqwry.ipdb")
 		if err != nil {
 			return loc, err
 		}

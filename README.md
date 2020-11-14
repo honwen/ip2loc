@@ -1,11 +1,15 @@
 ### Source
+
 - https://github.com/chenhw2/ip2loc
-  
+
 ### Thanks
+
+- https://github.com/metowolf/qqwry.ipdb
 - https://github.com/ipipdotnet/datx-go
 - https://github.com/rakyll/statik
-  
+
 ### Usage
+
 ```go
 package main
 
@@ -22,4 +26,11 @@ func main() {
         }
 }
 
+```
+
+### Assets
+
+```bash
+go get github.com/rakyll/statik
+statik -src=assets -f
 ```

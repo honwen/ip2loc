@@ -16,7 +16,8 @@ func stdin() {
 		if loc, err := ip2loc.IP2loc(ip); err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", ip, err)
 		} else {
-			fmt.Println(ip, loc.Country, loc.Province, loc.City)
+			fmt.Println(ip, loc.CountryName, loc.RegionName, loc.CityName, loc.IspDomain)
+			// fmt.Printf("%+v\n", loc)
 		}
 	}
 
@@ -34,7 +35,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[1], err)
 			os.Exit(1)
 		} else {
-			fmt.Println(loc.CountryName, loc.RegionName, loc.CityName)
+			fmt.Println(loc.CountryName, loc.RegionName, loc.CityName, loc.IspDomain)
 		}
 	} else {
 		stdin()

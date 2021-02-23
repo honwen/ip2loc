@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/chenhw2/ip2loc"
+	"github.com/honwen/ip2loc"
 )
 
 func stdin() {

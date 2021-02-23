@@ -4,8 +4,8 @@
 package ip2loc
 
 import (
-	"github.com/chenhw2/ip2loc/ipdb"
-	_ "github.com/chenhw2/ip2loc/statik"
+	"github.com/honwen/ip2loc/ipdb"
+	_ "github.com/honwen/ip2loc/statik"
 	"github.com/rakyll/statik/fs"
 )
 

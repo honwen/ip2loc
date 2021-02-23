@@ -1,6 +1,6 @@
 ### Source
 
-- https://github.com/chenhw2/ip2loc
+- https://github.com/honwen/ip2loc
 
 ### Thanks
 
@@ -15,7 +15,7 @@ package main
 
 import (
         "fmt"
-        "github.com/chenhw2/ip2loc"
+        "github.com/honwen/ip2loc"
 )
 
 func main() {

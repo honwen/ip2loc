@@ -27,3 +27,5 @@ ip2loc*
 !ip2loc/
 !ip2loc.go
 
+vendor/
+

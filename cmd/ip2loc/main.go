@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/honwen/ip2loc"
 )
@@ -16,7 +17,14 @@ func stdin() {
 		if loc, err := ip2loc.IP2loc(ip); err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", ip, err)
 		} else {
-			fmt.Println(ip, loc.CountryName, loc.RegionName, loc.CityName, loc.IspDomain)
+			str := fmt.Sprintf("[%s %s %s %s]", loc.CountryName, loc.RegionName, loc.CityName, loc.IspDomain)
+			for strings.Contains(str, " ]") {
+				str = strings.ReplaceAll(str, " ]", "]")
+			}
+			for strings.Contains(str, "  ") {
+				str = strings.ReplaceAll(str, "  ", " ")
+			}
+			fmt.Println(str)
 			// fmt.Printf("%+v\n", loc)
 		}
 	}

@@ -1,1 +1,1 @@
-https://unpkg.com/qqwry.ipdb@2021.9.29/qqwry.ipdb
+https://unpkg.com/browse/qqwry.ipdb@2022.2.2/qqwry.ipdb

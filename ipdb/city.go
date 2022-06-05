@@ -2,7 +2,7 @@ package ipdb
 
 import (
 	"encoding/json"
-	"net/http"
+	"io/fs"
 	"reflect"
 	"time"
 )
@@ -60,7 +60,7 @@ type City struct {
 }
 
 // NewCity initialize
-func NewCity(file http.File) (*City, error) {
+func NewCity(file fs.File) (*City, error) {
 
 	r, e := newReader(file, &CityInfo{})
 	if e != nil {

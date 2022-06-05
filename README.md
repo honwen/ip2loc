@@ -5,8 +5,7 @@
 ### Thanks
 
 - https://github.com/metowolf/qqwry.ipdb
-- https://github.com/ipipdotnet/datx-go
-- https://github.com/rakyll/statik
+- https://github.com/ipipdotnet/ipdb-go
 
 ### Usage
 
@@ -26,11 +25,4 @@ func main() {
         }
 }
 
-```
-
-### Assets
-
-```bash
-go get github.com/rakyll/statik
-statik -src=assets -f
 ```

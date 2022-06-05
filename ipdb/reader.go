@@ -4,9 +4,9 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
+	"io/fs"
 	"io/ioutil"
 	"net"
-	"net/http"
 	"os"
 	"reflect"
 	"strings"
@@ -53,7 +53,7 @@ type reader struct {
 	refType map[string]string
 }
 
-func newReader(file http.File, obj interface{}) (*reader, error) {
+func newReader(file fs.File, obj interface{}) (*reader, error) {
 	var err error
 	var fileInfo os.FileInfo
 	fileInfo, err = file.Stat()

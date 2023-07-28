@@ -4,10 +4,7 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
-	"io/fs"
-	"io/ioutil"
 	"net"
-	"os"
 	"reflect"
 	"strings"
 	"time"
@@ -53,21 +50,14 @@ type reader struct {
 	refType map[string]string
 }
 
-func newReader(file fs.File, obj interface{}) (*reader, error) {
-	var err error
-	var fileInfo os.FileInfo
-	fileInfo, err = file.Stat()
-	if err != nil {
-		return nil, err
-	}
-	fileSize := int(fileInfo.Size())
-	if fileSize < 4 {
+func newReaderFromBytes(body []byte, obj interface{}) (*reader, error) {
+	if len(body) < 4 {
 		return nil, ErrFileSize
 	}
-	body, err := ioutil.ReadAll(file)
-	if err != nil {
-		return nil, ErrReadFull
-	}
+	return initBytes(body, len(body), obj)
+}
+
+func initBytes(body []byte, fileSize int, obj interface{}) (*reader, error) {
 	var meta MetaData
 	metaLength := int(binary.BigEndian.Uint32(body[0:4]))
 	if fileSize < (4 + metaLength) {

@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/honwen/ip2loc"
 )
@@ -14,18 +13,10 @@ func stdin() {
 
 	for scanner.Scan() {
 		ip := scanner.Text()
-		if loc, err := ip2loc.IP2loc(ip); err != nil {
+		if _, err := ip2loc.IP2loc(ip); err != nil {
 			fmt.Fprintf(os.Stderr, "%s: %v\n", ip, err)
 		} else {
-			str := fmt.Sprintf("[%s %s %s %s]", loc.CountryName, loc.RegionName, loc.CityName, loc.IspDomain)
-			for strings.Contains(str, " ]") {
-				str = strings.ReplaceAll(str, " ]", "]")
-			}
-			for strings.Contains(str, "  ") {
-				str = strings.ReplaceAll(str, "  ", " ")
-			}
-			fmt.Println(str)
-			// fmt.Printf("%+v\n", loc)
+			fmt.Println(ip2loc.IP2locCHS(ip))
 		}
 	}
 
@@ -33,8 +24,6 @@ func stdin() {
 		fmt.Fprintln(os.Stderr, "Failed:", err)
 		os.Exit(1)
 	}
-
-	return
 }
 
 func main() {

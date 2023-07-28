@@ -1,10 +1,8 @@
 package ipdb
 
 import (
-	"net/http"
 	"reflect"
 	"time"
-	// "os"
 )
 
 type DistrictInfo struct {
@@ -20,18 +18,6 @@ type DistrictInfo struct {
 
 type District struct {
 	reader *reader
-}
-
-func NewDistrict(file http.File) (*District, error) {
-
-	r, e := newReader(file, &DistrictInfo{})
-	if e != nil {
-		return nil, e
-	}
-
-	return &District{
-		reader: r,
-	}, nil
 }
 
 func (db *District) Find(addr, language string) ([]string, error) {

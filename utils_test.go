@@ -31,6 +31,6 @@ func TestIp2locCN(t *testing.T) {
 	got.T(t).Eq(IP2locCHS("203.189.136.148"), "[柬埔寨 柬埔寨]")
 	got.T(t).Eq(IP2locCHS("203.112.2.4"), "[日本 日本]")
 	got.T(t).Eq(IP2locCHS("80.80.80.80"), "[荷兰 荷兰]")
-	got.T(t).Eq(IP2locCHS("74.82.42.42"), "[美国 加利福尼亚州]")
+	got.T(t).Eq(IP2locCHS("74.82.42.42"), "[美国加利福尼亚州弗里蒙特市 Hurricane Electric公司]")
 
 }

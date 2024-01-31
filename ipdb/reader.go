@@ -11,8 +11,10 @@ import (
 	"unsafe"
 )
 
-const IPv4 = 0x01
-const IPv6 = 0x02
+const (
+	IPv4 = 0x01
+	IPv6 = 0x02
+)
 
 var (
 	ErrFileSize = errors.New("IP Database file size error.")
@@ -113,7 +115,6 @@ func (db *reader) Find(addr, language string) ([]string, error) {
 }
 
 func (db *reader) FindMap(addr, language string) (map[string]string, error) {
-
 	data, err := db.find1(addr, language)
 	if err != nil {
 		return nil, err
@@ -127,7 +128,6 @@ func (db *reader) FindMap(addr, language string) (map[string]string, error) {
 }
 
 func (db *reader) find0(addr string) ([]byte, error) {
-
 	var err error
 	var node int
 	ipv := net.ParseIP(addr)
@@ -160,7 +160,6 @@ func (db *reader) find0(addr string) ([]byte, error) {
 }
 
 func (db *reader) find1(addr, language string) ([]string, error) {
-
 	off, ok := db.meta.Languages[language]
 	if !ok {
 		return nil, ErrNoSupportLanguage
@@ -182,7 +181,6 @@ func (db *reader) find1(addr, language string) ([]string, error) {
 }
 
 func (db *reader) search(ip net.IP, bitCount int) (int, error) {
-
 	var node int
 
 	if bitCount == 32 {

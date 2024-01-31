@@ -25,7 +25,6 @@ func (db *District) Find(addr, language string) ([]string, error) {
 }
 
 func (db *District) FindMap(addr, language string) (map[string]string, error) {
-
 	data, err := db.reader.find1(addr, language)
 	if err != nil {
 		return nil, err
@@ -39,7 +38,6 @@ func (db *District) FindMap(addr, language string) (map[string]string, error) {
 }
 
 func (db *District) FindInfo(addr, language string) (*DistrictInfo, error) {
-
 	data, err := db.reader.FindMap(addr, language)
 	if err != nil {
 		return nil, err

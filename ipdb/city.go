@@ -78,7 +78,6 @@ func (db *City) Find(addr, language string) ([]string, error) {
 
 // FindMap query with addr
 func (db *City) FindMap(addr, language string) (map[string]string, error) {
-
 	data, err := db.reader.find1(addr, language)
 	if err != nil {
 		return nil, err
@@ -93,17 +92,16 @@ func (db *City) FindMap(addr, language string) (map[string]string, error) {
 
 // FindInfo query with addr
 func (db *City) FindInfo(addr, language string) (*CityInfo, error) {
-
 	data, err := db.reader.FindMap(addr, language)
 	if err != nil {
 		return nil, err
 	}
 
 	var asnInfoList []ASNInfo
-	var asnInfoType = reflect.TypeOf(asnInfoList)
+	asnInfoType := reflect.TypeOf(asnInfoList)
 
 	var districtInfo DistrictInfo
-	var districtInfoType = reflect.TypeOf(districtInfo)
+	districtInfoType := reflect.TypeOf(districtInfo)
 
 	info := &CityInfo{}
 

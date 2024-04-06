@@ -31,6 +31,9 @@ var (
 
 func IP2loc(ip string) (loc *ipdb.CityInfo, err error) {
 	// log.Println(ip)
+	if len(ip) < 1 {
+		return &ipdb.CityInfo{}, nil
+	}
 	if nil == v4 {
 		v4 = regexp.MustCompile(regxIPv4)
 	}
@@ -71,14 +74,14 @@ func IP2locCHS(ip string) (str string) {
 		for strings.Contains(str, "\t") {
 			str = strings.ReplaceAll(str, "\t", " ")
 		}
-		for strings.Contains(str, "  ") {
-			str = strings.ReplaceAll(str, "  ", " ")
-		}
 		for strings.Contains(str, " ]") {
 			str = strings.ReplaceAll(str, " ]", "]")
 		}
 		for strings.Contains(str, "  ") {
 			str = strings.ReplaceAll(str, "  ", " ")
+		}
+		for strings.Contains(str, "[]") {
+			str = strings.ReplaceAll(str, "[]", "")
 		}
 	}
 	return

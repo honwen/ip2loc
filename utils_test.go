@@ -14,6 +14,8 @@ func TestIp2locCN_Loop(t *testing.T) {
 }
 
 func TestIp2locCN(t *testing.T) {
+	got.T(t).Eq(IP2locCHS(""), "")
+
 	got.T(t).Eq(IP2locCHS("2408:8888::8"), "[中国 中国联通DNS服务器]")
 	got.T(t).Eq(IP2locCHS("240e:5b::6666"), "[中国 江苏省 中国电信业务平台]")
 	got.T(t).Eq(IP2locCHS("2409:8028:2000::1111"), "[中国 浙江省 中国移动DNS服务器]")

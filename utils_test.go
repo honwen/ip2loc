@@ -42,11 +42,11 @@ func TestIp2locCN(t *testing.T) {
 
 	got.T(t).Eq(IP2locCHS("101.6.6.6"), "[中国 北京 北京 教育网]")
 
-	got.T(t).Eq(IP2locCHS("168.95.1.1"), "[中国 台湾 中华电信]")
-	got.T(t).Eq(IP2locCHS("202.67.240.222"), "[中国 香港]")
+	got.T(t).Eq(IP2locCHS("168.95.1.1"), "[中国 台湾 中华电信(HiNet)数据中心DNS服务器]")
+	got.T(t).Eq(IP2locCHS("202.67.240.222"), "[中国 香港 HKnet公司]")
 
-	got.T(t).Eq(IP2locCHS("203.189.136.148"), "[柬埔寨 柬埔寨]")
-	got.T(t).Eq(IP2locCHS("203.112.2.4"), "[日本 日本]")
-	got.T(t).Eq(IP2locCHS("80.80.80.80"), "[荷兰 荷兰]")
-	got.T(t).Eq(IP2locCHS("74.82.42.42"), "[美国–加利福尼亚州–阿拉梅达–费利蒙 Hurricane_Electric公司]")
+	got.T(t).Eq(IP2locCHS("203.189.136.148"), "[柬埔寨]")
+	got.T(t).Eq(IP2locCHS("203.112.2.4"), "[日本 UCOM公司MIINET网络DNS服务器]")
+	got.T(t).Eq(IP2locCHS("80.80.80.80"), "[荷兰 Freenom公司公共DNS服务器]")
+	got.T(t).Eq(IP2locCHS("74.82.42.42"), "[美国 加利福尼亚州 阿拉梅达 Hurricane_Electric公司]")
 }

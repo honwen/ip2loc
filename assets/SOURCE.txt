@@ -1,2 +1,2 @@
-https://unpkg.com/browse/qqwry.ipdb@2024.9.25/qqwry.ipdb
+https://app.unpkg.com/qqwry.ipdb@2025.4.2/files/qqwry.ipdb
 https://ip.zxinc.org/ip.7z#20210511

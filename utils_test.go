@@ -1,6 +1,7 @@
 package ip2loc
 
 import (
+	"sync"
 	"testing"
 
 	"github.com/ysmood/got"
@@ -8,9 +9,22 @@ import (
 
 func TestIp2locCN_Loop(t *testing.T) {
 	for i := 1; i < 99999; i++ {
-		// got.T(t).Eq(IP2locCHS("202.96.128.86"), "[中国 广东 广州 电信]")
-		// got.T(t).Eq(IP2locCHS("2408:8888::8"), "[中国 中国联通DNS服务器]")
+		got.T(t).Eq(IP2locCHS("202.96.128.86"), "[中国 广东 广州 电信]")
+		got.T(t).Eq(IP2locCHS("2408:8888::8"), "[中国 中国联通DNS服务器]")
 	}
+}
+
+func TestIp2locCN_GoLoop(t *testing.T) {
+	var wg sync.WaitGroup
+	for i := 1; i < 99999; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			got.T(t).Eq(IP2locCHS("202.96.128.86"), "[中国 广东 广州 电信]")
+			got.T(t).Eq(IP2locCHS("2408:8888::8"), "[中国 中国联通DNS服务器]")
+		}()
+	}
+	wg.Wait()
 }
 
 func TestIp2locCN(t *testing.T) {
